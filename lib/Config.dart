@@ -34,5 +34,6 @@ class Config {
 
   ///Geometric sizes
   static double iconSize = 40,
-    imageHeight = 264;
+    imageHeight = 264,
+    dotSize = 10;
 }

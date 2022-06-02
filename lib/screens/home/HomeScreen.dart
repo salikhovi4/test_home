@@ -4,10 +4,9 @@ import 'package:test_home/Config.dart';
 import 'package:test_home/Styles.dart';
 import 'package:test_home/model/HomeInfo.dart';
 import 'package:test_home/components/MainButton.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:test_home/components/ImageComponent.dart';
-import 'package:test_home/screens/home/components/CardHeader.dart';
+import 'package:test_home/components/ImageSlider.dart';
 import 'package:test_home/screens/home/components/CardPrice.dart';
+import 'package:test_home/screens/home/components/CardHeader.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -35,15 +34,9 @@ class HomeScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    homeInfo.imageLinks.isNotEmpty ?
-                    CarouselSlider(
-                      options: CarouselOptions(
-                        height: Config.imageHeight,
-                        viewportFraction: 1.0,
-                      ),
-                      items: homeInfo.imageLinks.map((link) =>
-                          ImageComponent(link: link)).toList(),
-                    ) : const SizedBox(),
+                    homeInfo.imageLinks.isNotEmpty
+                        ? ImageSlider(source: homeInfo.imageLinks)
+                        : const SizedBox(),
 
                     Padding(
                       padding: EdgeInsets.all(Config.padding),
